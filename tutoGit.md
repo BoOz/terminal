@@ -133,6 +133,47 @@ git diff master labranche
 `git clone -b <nom_de_la_branche> --single-branch git@github.com:<depot>.git`
 
 
+** Tags **
+
+# Marquer cette version
+`git tag -a v1.0.0 -m "Version 1.0.0"`
+
+# Envoyer branche + tag sur le dépôt distant
+```
+git push origin main
+git push origin v1.0.0
+```
+
+Créer une branche de développement à partir de cette v1
+
+```
+git switch -c dev
+git push -u origin dev
+```
+
+travailler normalement sur dev :
+
+```
+git switch dev
+git add .
+git commit -m "Préparation de la v2"
+git push
+```
+
+merger
+
+```
+git switch main
+git merge dev
+
+git tag -a v2.0.0 -m "Version 2.0.0"
+
+git push origin main
+git push origin v2.0.0
+```
+
+
+
 Voir aussi : https://ohshitgit.com/fr
 
 
